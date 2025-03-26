@@ -31,3 +31,7 @@ app.get("/", async (req, res) => {
   let users = await Customer.find();
   res.json(users);
 });
+
+app.listen(8080, () => {
+  console.log("Server running on port 8080...");
+});
