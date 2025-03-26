@@ -19,5 +19,15 @@ app.get("/:name/:email/:password", async (req, res) => {
     res.send("User Created Successfully");
   } catch (error) {
     console.log(error);
+
+    res.send("I failed");
   }
+});
+app.get("/find/:name", async (req, res) => {
+  let users = await Customer.find({ name: req.params.name });
+  res.json(users);
+});
+app.get("/", async (req, res) => {
+  let users = await Customer.find();
+  res.json(users);
 });
